@@ -1,0 +1,112 @@
+{
+    "modules-left": [
+        "custom/arch",
+        "custom/clipboard"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "pulseaudio",
+        "network",
+        "idle_inhibitor"
+    ],
+
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": true,
+        "tooltip-format": "btw"
+    },
+
+    "custom/clipboard": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "qdbus6 org.kde.klipper /klipper org.kde.klipper.klipper.showKlipperPopupMenu"
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": "  {usage}%",
+        "tooltip": true,
+        "on-click": "plasma-systemmonitor"
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "󰍛  {percentage}%",
+        "tooltip": true,
+        "on-click": "plasma-systemmonitor"
+    },
+
+    "temperature": {
+        "interval": 10,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 90,
+        "format": "  {temperatureC}°C",
+        "format-critical": "  {temperatureC}°C"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon}  {volume}%",
+        "format-muted": "  Muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "systemsettings kcm_pulseaudio"
+    },
+
+    "network": {
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "  {ipaddr}",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "plasmawindowed org.kde.plasma.networkmanagement"
+    },
+    "bluetooth": {
+   	 "format": "",
+   	 "format-connected": "  {device_alias}",
+   	 "format-connected-battery": "  {device_alias} {device_battery_percentage}%",
+   	 "format-disabled": "󰂲",
+   	 "tooltip-format": "{controller_alias}\n{controller_address}",
+   	 "on-click": "systemsettings kcm_bluetooth"
+     },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='16pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+       },
+     "return-type": "json",
+     "exec-if": "which swaync-client",
+     "exec": "swaync-client -swb",
+     "on-click": "swaync-client -t -sw",
+     "on-click-right": "swaync-client -d -sw",
+     "escape": true
+     },
+
+    "clock": {
+        "format": "{:%H:%M | %e %B}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    }
+}
