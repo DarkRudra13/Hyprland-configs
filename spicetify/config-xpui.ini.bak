@@ -1,0 +1,32 @@
+[Setting]
+check_spicetify_update = 1
+spotify_path           = /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/aeb385d0f92ef6470cd35a0c311dd311a98981b8721697c0adb354c5a3cd192e/files/extra/share/spotify
+inject_theme_js        = 1
+inject_css             = 1
+replace_colors         = 1
+spotify_launch_flags   = 
+always_enable_devtools = 0
+prefs_path = /home/rudra13/.var/app/com.spotify.Client/config/spotify/prefs
+current_theme          = marketplace
+color_scheme           = 
+overwrite_assets       = 0
+
+[Preprocesses]
+disable_ui_logging = 1
+remove_rtl_rule    = 1
+expose_apis        = 1
+disable_sentry     = 1
+
+[AdditionalOptions]
+sidebar_config        = 0
+home_config           = 1
+experimental_features = 1
+extensions            = 
+custom_apps           = marketplace
+
+[Patch]
+
+; DO NOT CHANGE!
+[Backup]
+version = 1.2.63.394.g126b0d89
+with    = 2.41.0
